@@ -11,6 +11,10 @@ export default class CalculateDueDateHelper {
     resolveDate.setTime( resolveDate.getTime() + workingDaysToAdd.numberOfWeeks * CalculateDueDateHelper.millisecondsInAWeek );
     resolveDate.setTime( resolveDate.getTime() + workingDaysToAdd.numberOfDays * CalculateDueDateHelper.millisecondsInADay );
     resolveDate.setTime( resolveDate.getTime() + workingDaysToAdd.numberOfHours * CalculateDueDateHelper.millisecondsInAnHour );
+
+    this.isSunday( resolveDate ) ? resolveDate.setTime( resolveDate.getTime() + CalculateDueDateHelper.millisecondsInADay ) : null ;
+    this.isSaturday( resolveDate ) ? resolveDate.setTime( resolveDate.getTime() + 2 * CalculateDueDateHelper.millisecondsInADay ) : null ;
+
     return resolveDate;
   }
 
@@ -22,6 +26,14 @@ export default class CalculateDueDateHelper {
         numberOfHours: turnaroundtime % 8
       };
       return workingDaysToAdd;
+  }
+
+  private static isSaturday( date: Date ): boolean {
+    return date.toString().toLowerCase().includes( 'sat' );
+  }
+
+  private static isSunday( date: Date ): boolean {
+    return date.toString().toLowerCase().includes( 'sun' );
   }
 
 }
