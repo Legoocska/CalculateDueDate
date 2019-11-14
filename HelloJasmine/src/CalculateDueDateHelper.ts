@@ -35,7 +35,7 @@ export default class CalculateDueDateHelper {
   private static isSunday( date: Date ): boolean {
     return date.toString().toLowerCase().includes( 'sun' );
   }
-
+  
 }
 
 interface WorkingDaysToAdd{
