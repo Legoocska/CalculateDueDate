@@ -31,6 +31,18 @@ describe('calculateDueDate', () => {
     expect(result.getTime()).toBe(expectedDate.getTime());
   });
 
+  it('should push work to the next year without problem', () => {
+    const customTestDate = new Date( Date.UTC( 2019, 10, 14, 19, 43, 15 ) );
+    // 77 working days is 616 hours
+    const hoursToAdd = 616;
+
+    // 77 weekdays from the custom test date
+    const expectedDate = new Date( Date.UTC( 2020, 2, 2, 19, 43, 15 ) );
+    const result = CalculateDueDateHelper.calculateDueDate(customTestDate, hoursToAdd);
+
+    expect(result.getTime()).toBe(expectedDate.getTime());
+  });
+
   describe( 'on Sunday', () => {
     it('should push work next week ', () => {  
       const hoursToAdd = 24;
