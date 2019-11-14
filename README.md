@@ -1,12 +1,8 @@
 ## Typescript unit tests
 
-This repository contains 3 Projects:
+This repository contains a Jasmine project:
 
 1.  [HelloJasmine](https://github.com/chiragrupani/TSUnitTestsSetup/tree/master/HelloJasmine 'Jasmine')
-
-2.  [HelloMocha](https://github.com/chiragrupani/TSUnitTestsSetup/tree/master/HelloMocha 'Mocha')
-
-3.  [Hello Jest](https://github.com/chiragrupani/TSUnitTestsSetup/tree/master/HelloJest 'Jest')
 
 Each project contains sample source code in `src` folder and unit tests in `tests` folder.
 
@@ -14,11 +10,9 @@ The goal is to create starter project using typescript and above testing framewo
 
 <hr/>
 
-## Manually Setting up projects
+## Manually Setting up
 
-The `.\installCmd.sh` file contains `npm install` commands if you want to use same npm package in your existing projects.
-
-The `.vscode\launch.json` file contains settings for debugging the code in VS Code editor.
+Run 'npm install' inside the Jasmine project folder root
 
 The `.\Package.json` file contains scripts for executing tests.
 
@@ -52,12 +46,12 @@ npm run coverage
 
 <hr/>
 
-If you get error - `describe is not defined`, add mocha or jasmine as shown below in `ts.config`:
+If you get error - `describe is not defined`, add jasmine as shown below in `ts.config`:
 
 ```json
 "compilerOptions": {
     "types": [
-      "mocha"
+      "jasmine"
     ]
 }
 ```
